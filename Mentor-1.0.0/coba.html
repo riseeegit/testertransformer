@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>About - Mentor Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="about-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/bg1.jpg" alt="">
+        <h1 class="sitename">Mentor</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="courses.html">Mata Kuliah</a></li>
+          <li><a href="coba.html"class="active">Jadwal</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="courses.html">Get Started</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-3 mb-lg-0">Jadwal</h1>
+        <div id="datetime" class="text-lg-end"></div>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule section">
+      <div class="container">
+
+        <!-- Jadwal Kuliah Table -->
+        <div class="mb-5" data-aos="fade-up">
+          <h3 class="mb-4">Jadwal Kuliah</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="table-primary">
+                <tr class="text-center">
+                  <th>Hari</th>
+                  <th>Jam</th>
+                  <th>Mata Kuliah</th>
+                  <th>Dosen</th>
+                  <th width="50"></th>
+                </tr>
+              </thead>
+              <tbody id="scheduleBody">
+                <tr>
+                  <td colspan="5" class="text-center text-muted">Belum ada jadwal. Silakan tambahkan jadwal baru.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Jadwal Tambahan Table -->
+        <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="mb-4">Jadwal Tambahan</h3>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="table-success">
+                <tr class="text-center">
+                  <th>Tanggal</th>
+                  <th>Jam</th>
+                  <th>Mata Kuliah</th>
+                  <th>Keterangan</th>
+                  <th width="50"></th>
+                </tr>
+              </thead>
+              <tbody id="additionalScheduleBody">
+                <tr>
+                  <td colspan="5" class="text-center text-muted">Belum ada jadwal tambahan.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Form Tambah Jadwal -->
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Tambah Jadwal Baru</h4>
+
+            <!-- Dropdown Pilih Tipe Jadwal -->
+            <div class="mb-4">
+              <label for="scheduleType" class="form-label">Pilih tipe Jadwal</label>
+              <select id="scheduleType" class="form-select" required>
+                <option value="regular">Jadwal Kuliah</option>
+                <option value="additional">Jadwal Tambahan</option>
+              </select>
+            </div>
+
+            <!-- Form Jadwal Kuliah -->
+            <form id="regularScheduleForm" style="display: none;">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="hari" class="form-label">Hari:</label>
+                  <select id="hari" class="form-select" required>
+                    <option value="Senin">Senin</option>
+                    <option value="Selasa">Selasa</option>
+                    <option value="Rabu">Rabu</option>
+                    <option value="Kamis">Kamis</option>
+                    <option value="Jumat">Jumat</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="jam" class="form-label">Jam:</label>
+                  <input type="text" id="jam" class="form-control" placeholder="08:00-10:00" required>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="matakuliah" class="form-label">Mata Kuliah:</label>
+                  <select id="matakuliah" class="form-select" required>
+                    <option value="">Pilih Mata Kuliah</option>
+                    <option value="Pemrograman Berbasis Objek*">Pemrograman Berbasis Objek*</option>
+                    <option value="Jaringan Komputer*">Jaringan Komputer*</option>
+                    <option value="Konsep Sistem Terintegrasi">Konsep Sistem Terintegrasi</option>
+                    <option value="Kepemimpinan dan Manajemen Organisasi">Kepemimpinan dan Manajemen Organisasi</option>
+                    <option value="Sistem Informasi Manajemen">Sistem Informasi Manajemen</option>
+                    <option value="Transformasi Digital">Transformasi Digital</option>
+                    <option value="Etika Profesi dan Profesional">Etika Profesi dan Profesional</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="dosen" class="form-label">Nama Dosen:</label>
+                  <input type="text" id="dosen" class="form-control" readonly>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">Tambah Jadwal Kuliah</button>
+            </form>
+
+            <!-- Form Jadwal Tambahan -->
+            <form id="additionalScheduleForm" style="display: none;">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="tanggal" class="form-label">Tanggal:</label>
+                  <input type="date" id="tanggal" class="form-control" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="jamTambahan" class="form-label">Jam:</label>
+                  <input type="text" id="jamTambahan" class="form-control" placeholder="08:00-10:00" required>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="kegiatan" class="form-label">Kegiatan:</label>
+                  <input type="text" id="kegiatan" class="form-control" placeholder="Nama kegiatan" required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="keterangan" class="form-label">Keterangan:</label>
+                  <input type="text" id="keterangan" class="form-control" placeholder="Keterangan tambahan">
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-success w-100">Tambah Jadwal Tambahan</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Schedule Section -->
+
+    <style>
+      #datetime {
+        font-size: 1rem;
+        color: #666;
+      }
+
+      .table th {
+        font-weight: 600;
+      }
+
+      .delete-btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #dc3545;
+        padding: 0;
+      }
+
+      .delete-btn:hover {
+        color: #bb2d3b;
+      }
+    </style>
+
+    <script>
+      // Data dosen untuk setiap mata kuliah
+      const dosenData = {
+        'Pemrograman Berbasis Objek*': 'Lutfi Budi Ilmawan, S.Kom., M.Cs., MTA',
+        'Jaringan Komputer*': '',
+        'Konsep Sistem Terintegrasi': 'Muhammad Arfah Asis, S.Kom., MT',
+        'Kepemimpinan dan Manajemen Organisasi': 'A. Ulfah Tenripada Sahar, M.Kom., MTA',
+        'Sistem Informasi Manajemen': 'Dr.Ir. Dolly Indra, S.Kom., M.MSI. MTA',
+        'Transformasi Digital': '',
+        'Etika Profesi dan Profesional': 'Sugiarti, M.Kom., MTA',
+        'Ilmu Dakwah': 'Pak Nukman',
+      };
+
+      // Urutan hari untuk sorting
+      const hariOrder = {
+        'Senin': 1,
+        'Selasa': 2,
+        'Rabu': 3,
+        'Kamis': 4,
+        'Jumat': 5
+      };
+
+      // Array untuk menyimpan jadwal
+      let schedules = JSON.parse(localStorage.getItem('schedules')) || [];
+      let additionalSchedules = JSON.parse(localStorage.getItem('additionalSchedules')) || [];
+
+      // Update tanggal dan jam
+      function updateDateTime() {
+        const now = new Date();
+        const options = {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        };
+        document.getElementById('datetime').textContent = now.toLocaleDateString('id-ID', options);
+      }
+
+      // Update setiap detik
+      setInterval(updateDateTime, 1000);
+      updateDateTime();
+
+      // Hapus jadwal tambahan yang sudah lewat
+      function cleanExpiredSchedules() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        additionalSchedules = additionalSchedules.filter(schedule => {
+          const scheduleDate = new Date(schedule.tanggal);
+          scheduleDate.setHours(0, 0, 0, 0);
+          return scheduleDate >= today;
+        });
+
+        localStorage.setItem('additionalSchedules', JSON.stringify(additionalSchedules));
+      }
+
+      // Panggil saat halaman dimuat
+      cleanExpiredSchedules();
+
+      // Toggle form berdasarkan tipe jadwal
+      document.getElementById('scheduleType').addEventListener('change', function() {
+        const regularForm = document.getElementById('regularScheduleForm');
+        const additionalForm = document.getElementById('additionalScheduleForm');
+
+        if (this.value === 'regular') {
+          regularForm.style.display = 'block';
+          additionalForm.style.display = 'none';
+        } else if (this.value === 'additional') {
+          regularForm.style.display = 'none';
+          additionalForm.style.display = 'block';
+        } else {
+          regularForm.style.display = 'none';
+          additionalForm.style.display = 'none';
+        }
+      });
+
+      // Auto-fill dosen ketika mata kuliah dipilih
+      document.getElementById('matakuliah').addEventListener('change', function() {
+        const matakuliah = this.value;
+        const dosenInput = document.getElementById('dosen');
+        dosenInput.value = dosenData[matakuliah] || '';
+      });
+
+      // Handle form submit jadwal kuliah
+      document.getElementById('regularScheduleForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const hari = document.getElementById('hari').value;
+        const jam = document.getElementById('jam').value;
+        const matakuliah = document.getElementById('matakuliah').value;
+        const dosen = document.getElementById('dosen').value;
+
+        schedules.push({
+          hari: hari,
+          jam: jam,
+          matakuliah: matakuliah,
+          dosen: dosen
+        });
+
+        localStorage.setItem('schedules', JSON.stringify(schedules));
+        renderRegularTable();
+        this.reset();
+        document.getElementById('scheduleType').value = '';
+        this.style.display = 'none';
+      });
+
+      // Handle form submit jadwal tambahan
+      document.getElementById('additionalScheduleForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const tanggal = document.getElementById('tanggal').value;
+        const jamTambahan = document.getElementById('jamTambahan').value;
+        const kegiatan = document.getElementById('kegiatan').value;
+        const keterangan = document.getElementById('keterangan').value;
+
+        additionalSchedules.push({
+          tanggal: tanggal,
+          jam: jamTambahan,
+          kegiatan: kegiatan,
+          keterangan: keterangan
+        });
+
+        localStorage.setItem('additionalSchedules', JSON.stringify(additionalSchedules));
+        renderAdditionalTable();
+        this.reset();
+        document.getElementById('scheduleType').value = '';
+        this.style.display = 'none';
+      });
+
+      // Fungsi untuk mengekstrak jam awal (untuk sorting)
+      function getStartTime(jamString) {
+        const match = jamString.match(/(\d{1,2}):(\d{2})/);
+        if (match) {
+          return parseInt(match) * 60 + parseInt(match);
+        }
+        return 0;
+      }
+
+      // Fungsi untuk render tabel jadwal kuliah
+      function renderRegularTable() {
+        const tbody = document.getElementById('scheduleBody');
+
+        if (schedules.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Belum ada jadwal. Silakan tambahkan jadwal baru.</td></tr>';
+          return;
+        }
+
+        schedules.sort((a, b) => {
+          if (hariOrder[a.hari] !== hariOrder[b.hari]) {
+            return hariOrder[a.hari] - hariOrder[b.hari];
+          }
+          return getStartTime(a.jam) - getStartTime(b.jam);
+        });
+
+        let html = '';
+        schedules.forEach((schedule, index) => {
+          html += `
+            <tr>
+              <td>${schedule.hari}</td>
+              <td>${schedule.jam}</td>
+              <td>${schedule.matakuliah}</td>
+              <td>${schedule.dosen}</td>
+              <td class="text-center">
+                <button class="delete-btn" onclick="deleteSchedule(${index})">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+
+        tbody.innerHTML = html;
+      }
+
+      // Fungsi untuk render tabel jadwal tambahan
+      function renderAdditionalTable() {
+        const tbody = document.getElementById('additionalScheduleBody');
+
+        if (additionalSchedules.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted">Belum ada jadwal tambahan.</td></tr>';
+          return;
+        }
+
+        additionalSchedules.sort((a, b) => {
+          if (a.tanggal !== b.tanggal) {
+            return new Date(a.tanggal) - new Date(b.tanggal);
+          }
+          return getStartTime(a.jam) - getStartTime(b.jam);
+        });
+
+        let html = '';
+        additionalSchedules.forEach((schedule, index) => {
+          const date = new Date(schedule.tanggal);
+          const formattedDate = date.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+
+          html += `
+            <tr>
+              <td>${formattedDate}</td>
+              <td>${schedule.jam}</td>
+              <td>${schedule.kegiatan}</td>
+              <td>${schedule.keterangan}</td>
+              <td class="text-center">
+                <button class="delete-btn" onclick="deleteAdditionalSchedule(${index})">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+
+        tbody.innerHTML = html;
+      }
+
+      // Fungsi untuk menghapus jadwal
+      function deleteSchedule(index) {
+        if (confirm('Apakah Anda yakin ingin menghapus jadwal ini?')) {
+          schedules.splice(index, 1);
+          localStorage.setItem('schedules', JSON.stringify(schedules));
+          renderRegularTable();
+        }
+      }
+
+      // Fungsi untuk menghapus jadwal tambahan
+      function deleteAdditionalSchedule(index) {
+        if (confirm('Apakah Anda yakin ingin menghapus jadwal tambahan ini?')) {
+          additionalSchedules.splice(index, 1);
+          localStorage.setItem('additionalSchedules', JSON.stringify(additionalSchedules));
+          renderAdditionalTable();
+        }
+      }
+
+      // Render tabel pertama kali
+      renderRegularTable();
+      renderAdditionalTable();
+    </script>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Mentor</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <form action="forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Mentor</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
